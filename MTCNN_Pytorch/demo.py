@@ -17,5 +17,6 @@ if __name__ == '__main__':
         bbox = bboxs[i, :4]
         cv2.rectangle(img, (int(bbox[0]), int(bbox[1])), (int(bbox[2]), int(bbox[3])), (0, 255, 0), 2)
     cv2.imshow("result", img)
+    cv2.imwrite("result.png", img)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
