@@ -1,4 +1,4 @@
-import cv2 as cv
+import cv2
 from cv2 import dnn
 
 net = dnn.readNetFromCaffe('./data/face_detector/deploy.prototxt',
@@ -8,7 +8,7 @@ inWidth = 300
 inHeight = 300
 confThreshold = 0.5
 
-img = cv.imread('test.png')
+img = cv2.imread('test.png')
 cols = img.shape[1]
 rows = img.shape[0]
 
@@ -21,10 +21,10 @@ for i in range(detections.shape[2]):
         yLeftBottom = int(detections[0, 0, i, 4] * rows)
         xRightTop = int(detections[0, 0, i, 5] * cols)
         yRightTop = int(detections[0, 0, i, 6] * rows)
-        cv.rectangle(img, (xLeftBottom, yLeftBottom), (xRightTop, yRightTop), (0, 255, 0),2)
-cv.imshow("result", img)
-cv.waitKey(0)
-cv.destroyAllWindows()
+        cv2.rectangle(img, (xLeftBottom, yLeftBottom), (xRightTop, yRightTop), (0, 255, 0),2)
+cv2.imshow("result", img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 
 
 
