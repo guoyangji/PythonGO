@@ -23,6 +23,7 @@ for i in range(detections.shape[2]):
         yRightTop = int(detections[0, 0, i, 6] * rows)
         cv2.rectangle(img, (xLeftBottom, yLeftBottom), (xRightTop, yRightTop), (0, 255, 0),2)
 cv2.imshow("result", img)
+cv2.imwrite("result.png", img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
